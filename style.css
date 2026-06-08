@@ -1,0 +1,170 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#050816;
+  overflow:hidden;
+}
+
+/* animated background particles feel */
+body::before,
+body::after{
+  content:"";
+  position:absolute;
+  width:400px;
+  height:400px;
+  background:cyan;
+  filter:blur(150px);
+  opacity:0.2;
+  animation:move 6s infinite alternate;
+}
+
+body::after{
+  background:purple;
+  right:0;
+  bottom:0;
+}
+
+@keyframes move{
+  from{transform:translate(0,0);}
+  to{transform:translate(80px,-80px);}
+}
+
+/* APP */
+.app{
+  text-align:center;
+  z-index:2;
+}
+
+/* TITLE */
+.title{
+  font-size:3rem;
+  color:white;
+  text-shadow:0 0 20px cyan;
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{filter:drop-shadow(0 0 5px cyan);}
+  to{filter:drop-shadow(0 0 25px cyan);}
+}
+
+/* TURN */
+.turn{
+  margin:15px;
+  color:#00ffff;
+  font-size:1.3rem;
+  animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+  50%{opacity:0.4;}
+}
+
+/* GAME BOARD */
+.game{
+  display:grid;
+  grid-template-columns:repeat(3,110px);
+  gap:12px;
+  justify-content:center;
+  margin-top:20px;
+}
+
+/* BOX */
+.box{
+  width:110px;
+  height:110px;
+  font-size:2.5rem;
+  border:none;
+  border-radius:18px;
+  cursor:pointer;
+
+  background:rgba(255,255,255,0.08);
+  color:white;
+
+  transition:0.3s;
+
+  box-shadow:0 0 10px rgba(0,255,255,0.1);
+}
+
+.box:hover{
+  transform:scale(1.1) rotate(2deg);
+  background:rgba(0,255,255,0.2);
+  box-shadow:0 0 20px cyan;
+}
+
+/* CLICK ANIMATION */
+.box:active{
+  transform:scale(0.9);
+}
+
+/* RESET BUTTON */
+#reset-btn{
+  margin-top:25px;
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,cyan,purple);
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
+  box-shadow:0 0 20px cyan;
+}
+
+#reset-btn:hover{
+  transform:scale(1.05);
+}
+
+/* POPUP */
+.popup{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.7);
+}
+
+.card{
+  background:#111;
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 0 30px cyan;
+  animation:pop 0.4s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(0);}
+  to{transform:scale(1);}
+}
+
+#msg{
+  color:cyan;
+  margin-bottom:20px;
+}
+
+#New-btn{
+  padding:10px 25px;
+  border:none;
+  border-radius:25px;
+  background:cyan;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.hide{
+  display:none;
+}
